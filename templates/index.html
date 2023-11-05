@@ -1,0 +1,85 @@
+<!doctype html>
+<html class="h-full scroll-smooth bg-white">
+<head>
+    <title>{{ .title }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fork.BET - Бесплатный сканер букмекерских вилок: повышайте свои шансы на выигрыш с помощью мощного инструмента, который находит и предлагает самые выгодные вилки и арбитражные ситуации на рынке ставок. ">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex h-full flex-col">
+
+<main>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 pt-20 text-center lg:pt-32">
+        <h1 class="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
+            <!-- --> <span class="relative whitespace-nowrap text-blue-600"><svg aria-hidden="true"
+                                                                                 viewBox="0 0 418 42"
+                                                                                 class="absolute left-0 top-2/3 h-[0.58em] w-full fill-blue-300/70"
+                                                                                 preserveAspectRatio="none"><path
+                d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.78 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.54-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.81 23.239-7.825 27.934-10.149 28.304-14.005.417-4.348-3.529-6-16.878-7.066Z"></path></svg><span
+                class="relative">Fork.bet</span></span> <!-- --> - бесплатный сканер БК вилок
+        </h1>
+
+        <p class="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
+            Бесплатные live и прематч вилки БК с доходностью от 1% в букмекерских конторах Winline и Fonbet.
+        </p>
+    </div>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-8 pt-10 lg:pt-16">
+        <div class="border-b border-gray-200 bg-white px-4 sm:px-6">
+            <h2 class="text-lg font-medium leading-6 text-gray-900">Последние live вилки БК</h2>
+        </div>
+
+        <div>
+            <ul role="list" class="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+                {{ range .liveForks }}
+
+                <li class="col-span-1 flex rounded-md shadow-sm">
+                    <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-t border-r border-b border-gray-200 bg-white">
+                        <div class="flex-1 truncate px-4 py-2 text-sm">
+                            <span class="font-black">Доходность: {{.Profit}}%</span>
+                            <p class="text-gray-500">{{.SportSlug}}, {{.Market}}</p>
+                            <span class="font-medium text-gray-900">{{ .MatchName }}</span>
+                            <div>
+                                <div class="flex justify-between  my-2">
+                                    <span>{{.Odd1Name}}</span>
+                                    <span class="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-800">{{.Odd1Value}}</span>
+                                    <span>
+                                        <a href="/"><img width="50px" src='/assets/{{.Odd1Bookmaker}}.png'> </a>
+                                    </span>
+                                </div>
+                                <div class="flex justify-between  my-2">
+                                    <span>{{.Odd2Name}}</span>
+                                    <span class="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-800">{{.Odd2Value}}</span>
+                                    <span>
+                                        <a href="/"><img width="50px" src='/assets/{{.Odd2Bookmaker}}.png'> </a>
+                                    </span>
+                                </div>
+                                <div class="flex justify-between  my-2">
+                                    <span>{{.Odd3Name}}</span>
+                                    <span class="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-800">{{.Odd3Value}}</span>
+                                    <span>
+                                        <a href="/"><img width="50px" src='/assets/{{.Odd3Bookmaker}}.png'> </a>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="text-gray-500">{{.CreatedAt}}</p>
+                        </div>
+                    </div>
+                </li>
+
+                {{ end }}
+
+
+            </ul>
+        </div>
+
+
+
+    </div>
+
+
+</main>
+
+</body>
+</html>
